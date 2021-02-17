@@ -21,15 +21,13 @@ function roundStringToInt(string) {
 function stringToPence(string) {
     if (string == null) return;
     // Regex to extract components from the given monetary format
-    const regex = /(£?)(\d*)[\.]*(\d*)/;
+    const regex = /(£?)(\d*)(\.?)(\d*)/;
     const match = string.match(regex);
     if (match == null) return;
-
     let pounds = match[2] == "" ? "0" : match[2];
-    let pence = match[3] == "" ? "0" : match[3];
-
+    let pence = match[4] == "" ? "0" : match[4];
     // Special case for a unique number that is interpreted as a price in pence
-    if (match[1] !== "£" && match[3] == "") {
+    if ((match[1] !== "£" && match[3] === "") && match[4] == "") {
         pounds = "0";
         pence = match[2] == "" ? "0" : match[2];
     }

@@ -8,6 +8,7 @@ function assert(condition) {
 }
 
 assert(stringToPence("5") == 5);
+assert(stringToPence("5.") == 500);
 assert(stringToPence("96") == 96);
 assert(stringToPence("187p") == 187);
 assert(stringToPence("4p") == 4);
