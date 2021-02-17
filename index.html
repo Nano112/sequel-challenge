@@ -12,15 +12,15 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 mx-auto align-middle text-center bg-white rounded shadow p-3 m-5">
-                <form name="inputForm" onsubmit="calculate();">
+                <form name="inputForm" action="#">
                     Input a value
                     <input id="input-value" placeholder="Amount"></input>
                     <br>
-                    <input type="checkbox" id="show-unused-coins">
+                    <input type="checkbox" id="show-unused-coins" onclick="calculate();">
                     Show unused coins
                     </input>
                     <br>
-                    <button type="submit" value="Set text of selected option">
+                    <button type="submit" value="Set text of selected option" onclick="calculate();">
                         Enter
                     </button>
                 </form>
@@ -33,7 +33,6 @@
     <script>
         // Processes the button click
         function calculate() {
-            event.preventDefault();
             const inputValue = document.getElementById("input-value").value;
             renderList(getDecomposition(inputValue))
         }
